@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: envs
+spec:
+  containers:
+  - name: sise
+    image: quay.io/openshiftlabs/simpleservice:0.5.0
+    ports:
+    - containerPort: 9876
+    envFrom:
+      - configMapRef:
+          name: special-config #It contains all the env specific details as DB String , DB BName HOSTNAME, Services that are known etc. 
